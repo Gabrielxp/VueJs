@@ -8,9 +8,22 @@
     <title>VueJs do jeito Ninja</title>
 </head>
 <body>
-    <div id="app">
-      <h1>{{titulo}}</h1>  
+    
+    <div id="app" >
+      <h1 v-if="status">{{titulo}}</h1>  
+
+      <div v-if="usuario.id == 1">
+            Id: {{usuario.id}} <br/>
+            Nome: {{usuario.nome}} <br/>
+            Profissao: {{usuario.profissao}} <br/>
+        </div>
+        <div v-else>
+            <p>Nenhum usuário com Id == 1</p>
+        </div>
+
     </div>
+
+    
 
 
 </body>
@@ -20,7 +33,11 @@
     var app = new Vue({
         el:"#app",
         data:{
-            titulo:"Aula 01 - VueJs"
+            usuario:{
+                id:5,
+                nome:"John Snow",
+                profissao:"Ator"
+            }
         }
 
     });
