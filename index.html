@@ -13,7 +13,7 @@
       <h1 v-if="status">{{titulo}}</h1>  
 
       <ul>
-          <li v-for="item in linguagens">{{item.nome}}</li>
+          <li v-for="(item , index) in linguagens">{{index}} - {{item.nome}}</li>
       </ul>
 
     </div>
