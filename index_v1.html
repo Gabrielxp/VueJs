@@ -12,9 +12,14 @@
     <div id="app" >
       <h1 v-if="status">{{titulo}}</h1>  
 
-      <ul>
-          <li v-for="item in linguagens">{{item.nome}}</li>
-      </ul>
+      <div v-if="usuario.id == 1">
+            Id: {{usuario.id}} <br/>
+            Nome: {{usuario.nome}} <br/>
+            Profissao: {{usuario.profissao}} <br/>
+        </div>
+        <div v-else>
+            <p>Nenhum usuário com Id == 1</p>
+        </div>
 
     </div>
 
@@ -28,13 +33,11 @@
     var app = new Vue({
         el:"#app",
         data:{
-            linguagens:[
-                {nome: "Javascript"},
-                {nome: "C#"},
-                {nome: "Java"},
-                {nome: "Python"},
-                {nome: "C++"},                
-            ]
+            usuario:{
+                id:5,
+                nome:"John Snow",
+                profissao:"Ator"
+            }
         }
 
     });
