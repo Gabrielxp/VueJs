@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <ul>
+            <li v-for="usuario in usuarios">{{usuario.nome | truncate('10') }}</li>
+        </ul>
+
+        <input type="button" value="click" @click.prevent.stop="enviar()" >
+    </div>
+    
+</body>
+</html>
+
+
+<script src="https://unpkg.com/vue"></script>
+<script>
+    var app = new Vue({
+        el:"#app",
+        data:{
+            usuarios :[
+                {nome:'joao'},
+                {nome:'jose'},
+                {nome:'maria'},
+                {nome:'filpe'},
+                {nome:'ana'}
+            ]
+        },
+
+        filters:{
+            toUpperCase(str,param1,param2){
+                console.log('param1',param1);
+                console.log('param2',param2);
+                return str.toUpperCase();
+            },
+
+            truncate(str, lenght){
+                var outout = str;
+                if(output.lenght > lenght){
+                    str.substring(0,lenght) + '...';
+                }
+                return str.substring(0,lenght);
+            }
+        },
+
+        methods:{
+            enviar(){
+                alert('Enviado');
+            }
+        }
+    })
+</script>
