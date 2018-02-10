@@ -8,16 +8,19 @@
     <title>VueJs do jeito Ninja</title>
 </head>
 <body>
-    
     <div id="app" >
-      <h1 v-if="status">{{titulo}}</h1>  
 
-      <ul>
-          <li v-for="(item , index) in linguagens">{{index}} - {{item.nome}}</li>
-      </ul>
+      <h1>{{titulo}}</h1>  
 
-    </div>
+      <label for="">Nome:</label><br/>
+      <input type="text" v-model="nome">{{nome}}</input>
 
+      <br/><br/>
+      <label for="">Telefone:</label><br/>
+      <input type="text" v-model="telefone">{{telefone}}</input>
+
+      <br/><br/>
+      
     
 
 
@@ -28,13 +31,7 @@
     var app = new Vue({
         el:"#app",
         data:{
-            linguagens:[
-                {nome: "Javascript"},
-                {nome: "C#"},
-                {nome: "Java"},
-                {nome: "Python"},
-                {nome: "C++"},                
-            ]
+            nome: ""
         }
 
     });
