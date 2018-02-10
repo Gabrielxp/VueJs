@@ -14,6 +14,17 @@
         <menu-bar></menu-bar>
 
     </div>
+
+    <template id="menu">
+        <div>
+            <ul>
+                <li>Item 1</li>
+                <li>Item 2</li>
+                <li>Item 3</li>
+            </ul>
+        </div>
+    </template>
+
 </body>
 </html>
 
@@ -21,7 +32,7 @@
 <script>
 
     Vue.component('menu-bar',{
-        template:"<div><ul><li>Item i</li></ul></div>"
+        template:"#menu"
     });
     var app = new Vue({
         el:'#app',
