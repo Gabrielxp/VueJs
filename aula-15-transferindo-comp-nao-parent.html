@@ -66,7 +66,7 @@
         ,
         methods:{
             submit(){
-                eventBus.$emit('submit', this.title);
+                this.$eventHub.$emit('submit', this.title);
                 console.log('Clicou');
                 
             }
@@ -77,7 +77,7 @@
         template: '#list',
         created(){
             var vm = this;
-            eventBus.$on('submit', function(title){
+            this.$eventHub.$on('submit', function(title){
                 if(title){
                     vm.list.push({title:title});
                 }
@@ -88,12 +88,14 @@
             return{
                 list:[
                     {title: "Ir a feira"},
+                    {title: "Comprar Ovos"},
                 ]
             }
         }
     });
 
-    var eventBus = new Vue();
+   
+    Vue.prototype.$eventHub = new Vue();
 
     var vue = new Vue({
         el:"#app",
